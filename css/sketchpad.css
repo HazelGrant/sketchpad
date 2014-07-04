@@ -1,0 +1,13 @@
+table {
+	margin: 50px auto;
+}
+
+.pixel {
+ 	width: 30px;
+ 	height: 30px;
+ 	border: 1px solid black;
+ }
+
+ .color {
+ 	background-color: black;
+ }
