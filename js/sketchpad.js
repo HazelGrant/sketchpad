@@ -11,4 +11,8 @@ $(document).ready(function() {
 		$(this).addClass('color');
 	});
 
+	$('.button').click(function() {
+		$('.pixel').removeClass('color');
+	});
+
 }); 
