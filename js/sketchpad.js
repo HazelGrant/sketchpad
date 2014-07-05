@@ -1,24 +1,8 @@
 $(document).ready(function() {
-	for(var i=0; i<16; i++) {
-		$('table').append('<tr></tr>');
-		};
+	var container = 600;
 
-	for(var j=0; j<16; j++) {
-		$('tr').append('<td><div class="pixel"></div></td>');
-	};
-
-	$('.pixel').mouseenter(function() {
-		$(this).addClass('color');
-	});
-
-	$('button').click(function() {
-		var table = document.getElementById("table");
-		table.remove();
-
-		$('.container').append('<table class="table"></table>');
-
-		var rows = prompt("Enter a number");
-		var cells = prompt("Enter another number");
+	var setTable = function(rows, cells) {
+		$('.container').append('<table id="table"></table>');
 
 		for(var i=0; i<rows; i++) {
 			$('table').append('<tr></tr>');
@@ -28,9 +12,30 @@ $(document).ready(function() {
 			$('tr').append('<td><div class="pixel"></div></td>');
 		};
 
+		$('.pixel').height(container/rows);
+		$('.pixel').width(container/cells);
+
 		$('.pixel').mouseenter(function() {
 			$(this).addClass('color');
 		});
 
+		$('.pixel').click(function() {
+			$(this).removeClass('color');
+		});
+	};
+
+	var removeTable = function() {
+		var table = document.getElementById("table");
+		table.remove();
+	};
+
+	$('button').click(function() {
+		var rows = prompt("Choose number for sketchpad height.");
+		var cells = prompt("Choose number for sketchpad width.");
+
+		removeTable();
+		setTable(rows,cells);
 	});
-}); 
+
+	setTable(16,16);
+});
