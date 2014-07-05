@@ -12,6 +12,10 @@ $(document).ready(function() {
 			$('tr').append('<td><div class="pixel"></div></td>');
 		};
 
+		/*Setting .pixel height and width,
+		plus the mouseenter and click functions
+		want refactoring somehow?*/
+
 		$('.pixel').height(container/rows);
 		$('.pixel').width(container/cells);
 
