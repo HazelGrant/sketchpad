@@ -1,6 +1,24 @@
 $(document).ready(function() {
 	var container = 600;
 
+	var setPixelDimensions = function(rows, cells) {
+		$('.pixel').height(container/rows);
+		$('.pixel').width(container/cells);
+	};
+
+	/*setPixelDimensions or similar method could contribute to optional challenges
+	pixelSettings?*/
+
+	var setActions = function() {
+		$('.pixel').mouseenter(function() {
+			$(this).addClass('color');
+		});
+
+		$('.pixel').click(function() {
+			$(this).removeClass('color');
+		});
+	};
+
 	var setTable = function(rows, cells) {
 		$('.container').append('<table id="table"></table>');
 
@@ -12,20 +30,8 @@ $(document).ready(function() {
 			$('tr').append('<td><div class="pixel"></div></td>');
 		};
 
-		/*Setting .pixel height and width,
-		plus the mouseenter and click functions
-		want refactoring somehow?*/
-
-		$('.pixel').height(container/rows);
-		$('.pixel').width(container/cells);
-
-		$('.pixel').mouseenter(function() {
-			$(this).addClass('color');
-		});
-
-		$('.pixel').click(function() {
-			$(this).removeClass('color');
-		});
+		setPixelDimensions(rows, cells);
+		setActions();
 	};
 
 	var removeTable = function() {
